@@ -32,6 +32,7 @@
 
 
 
+
 # In[2]:
 
 
@@ -45,7 +46,6 @@ from sklearn import model_selection
 from sklearn import preprocessing
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import backend as K
 import tensorflow_probability as tfp
 import tqdm
 from typing import Sequence
