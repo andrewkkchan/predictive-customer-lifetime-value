@@ -71,7 +71,7 @@ LOSS = 'ziln'  # @param { isTemplate: true, type: 'string'} ['mse', 'ziln']
 MODEL = 'dnn'  # @param { isTemplate: true, type: 'string'} ['linear', 'dnn']
 LEARNING_RATE = 0.0002  # @param { isTemplate: true}
 EPOCHS = 400  # @param { isTemplate: true, type: 'integer'}
-OUTPUT_CSV_FOLDER = '/tmp/lifetime-value/acquire-valued-shoppers-challenge/result'  # @param { isTemplate: true, type: 'string'}
+OUTPUT_CSV_FOLDER = '~/tmp/lifetime-value/acquire-valued-shoppers-challenge/result'  # @param { isTemplate: true, type: 'string'}
 
 
 # In[5]:
@@ -99,13 +99,13 @@ ALL_FEATURES = CATEGORICAL_FEATURES + NUMERIC_FEATURES
 
 
 # %%shell
-# if [ -e /tmp/lifetime-value/acquire-valued-shoppers-challenge/transactions.csv ]
+# if [ -e ~/tmp/lifetime-value/acquire-valued-shoppers-challenge/transactions.csv ]
 # then
 #   echo "File already exists, no need to download."
 # else
-#   rm -rf /tmp/lifetime-value/acquire-valued-shoppers-challenge
-#   mkdir -p /tmp/lifetime-value/acquire-valued-shoppers-challenge
-#   cd /tmp/lifetime-value/acquire-valued-shoppers-challenge
+#   rm -rf ~/tmp/lifetime-value/acquire-valued-shoppers-challenge
+#   mkdir -p ~/tmp/lifetime-value/acquire-valued-shoppers-challenge
+#   cd ~/tmp/lifetime-value/acquire-valued-shoppers-challenge
 #   kaggle competitions download -c acquire-valued-shoppers-challenge
 #   echo "Unzip file. This may take 10 min."
 #   gunzip transactions.csv.gz
@@ -118,9 +118,9 @@ ALL_FEATURES = CATEGORICAL_FEATURES + NUMERIC_FEATURES
 
 
 def load_transaction_data(company):
-  all_data_filename = '/tmp/lifetime-value/acquire-valued-shoppers-challenge/transactions.csv'
+  all_data_filename = '~/tmp/lifetime-value/acquire-valued-shoppers-challenge/transactions.csv'
   one_company_data_filename = (
-      '/tmp/lifetime-value/acquire-valued-shoppers-challenge/transactions_company_{}.csv'
+      '~/tmp/lifetime-value/acquire-valued-shoppers-challenge/transactions_company_{}.csv'
       .format(COMPANY))
   if os.path.isfile(one_company_data_filename):
     df = pd.read_csv(one_company_data_filename)
@@ -199,7 +199,7 @@ def preprocess(df):
 
 def load_customer_level_csv(company):
   customer_level_data_file = (
-      '/tmp/lifetime-value/acquire-valued-shoppers-challenge/customer_level_data_company_{}.csv'
+      '~/tmp/lifetime-value/acquire-valued-shoppers-challenge/customer_level_data_company_{}.csv'
       .format(company))
   if os.path.isfile(customer_level_data_file):
     customer_level_data = pd.read_csv(customer_level_data_file)
